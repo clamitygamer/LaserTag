@@ -12,7 +12,7 @@ public class GameServerApp {
 		MqttSender sender = new MqttSender();
 
 		// Instatiates a MQTT communication object for receiving messages.
-		// MqttListener listner = new MqttListener();
+		MqttListener listener = new MqttListener();
 
 		while (true) {
 
@@ -29,14 +29,15 @@ public class GameServerApp {
 				String message = scan.nextLine();
 				sender.send(message);
 			}
-			// if (communicationType == 2) {
-			// Listens for a message via the MQTT protocol
-			// listener.listens();
-			// }
-			
-			//Pushed to github4
+			if (communicationType == 2) {
+				// Listens for a message via the MQTT protocol
+				listener.listen();
+				// }
+
+				// Pushed to github4
+
+			}
 
 		}
-
 	}
 }
